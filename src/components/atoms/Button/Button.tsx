@@ -1,16 +1,16 @@
 import React from 'react';
 import {
-  ColorValue,
   StyleProp,
-  StyleSheet,
   TextStyle,
+  ViewStyle,
+  StyleSheet,
+  ColorValue,
   TouchableOpacity,
   TouchableOpacityProps,
-  ViewStyle,
 } from 'react-native';
 import Text from '../Text/Text';
-import {ratioW, TRobotoStyle} from '../../../utils';
-import {useTheme} from '../../../theme';
+import { ratioW, TRobotoStyle } from '../../../utils';
+import { useTheme } from '../../../theme';
 
 export type TButton =
   | 'primary'
@@ -21,27 +21,27 @@ export type TButton =
   | 'bordered';
 
 export interface IButtonProps extends TouchableOpacityProps {
-  buttonType?: TButton;
-  textStyle?: StyleProp<TextStyle>;
   title: string;
   onPress?: () => void;
+  buttonType?: TButton;
+  mainColor?: ColorValue;
   leftIcon?: React.ReactElement;
   rightIcon?: React.ReactElement;
-  mainColor?: ColorValue;
+  textStyle?: StyleProp<TextStyle>;
 }
 
-const Button: React.FC<IButtonProps> = props => {
+const Button: React.FC<IButtonProps> = (props) => {
   const {
-    buttonType = 'primary',
     style,
-    textStyle,
     title,
     onPress,
     leftIcon,
     rightIcon,
     mainColor,
+    textStyle,
+    buttonType = 'primary',
   } = props;
-  const {colors} = useTheme();
+  const { colors } = useTheme();
 
   const getColor = (): ColorValue => {
     if (props.disabled) {
@@ -64,7 +64,7 @@ const Button: React.FC<IButtonProps> = props => {
   };
   const dText = StyleSheet.flatten([
     styles.defaultText,
-    {color: colors.buttonText},
+    { color: colors.buttonText },
     textStyle,
   ]);
 
@@ -77,7 +77,7 @@ const Button: React.FC<IButtonProps> = props => {
     };
     const dBorderedText = StyleSheet.flatten([
       styles.defaultText,
-      {color: getColor()},
+      { color: getColor() },
       textStyle,
     ]);
 
@@ -86,7 +86,8 @@ const Button: React.FC<IButtonProps> = props => {
         {...props}
         onPress={onPress}
         activeOpacity={0.5}
-        style={[dStyle, style]}>
+        style={[dStyle, style]}
+      >
         {leftIcon}
         <Text style={dBorderedText}>{title}</Text>
         {rightIcon}
@@ -98,7 +99,8 @@ const Button: React.FC<IButtonProps> = props => {
       {...props}
       onPress={onPress}
       activeOpacity={0.5}
-      style={[{backgroundColor: getColor()}, styles.default, style]}>
+      style={[{ backgroundColor: getColor() }, styles.default, style]}
+    >
       {leftIcon}
       <Text style={dText}>{title}</Text>
       {rightIcon}

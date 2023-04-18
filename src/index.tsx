@@ -10,3 +10,4 @@ export * from './definitions';
 export * from './components/atoms';
 export * from './components/organism';
 export * from './components/molecules';
+export * from './theme';
