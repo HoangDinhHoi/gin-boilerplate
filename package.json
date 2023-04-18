@@ -1,6 +1,6 @@
 {
   "name": "react-native-gin-boilerplate",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "description": "test",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -49,7 +49,7 @@
   "homepage": "https://github.com/HoangDinhHoi/react-native-gin-boilerplate#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
-  },  
+  },
   "devDependencies": {
     "@commitlint/config-conventional": "17.0.2",
     "@evilmartians/lefthook": "1.2.2",
@@ -157,7 +157,7 @@
       ]
     ]
   },
-  "dependencies": {    
+  "dependencies": {
     "react-native-device-info": "^10.6.0",
     "react-native-fast-image": "8.6.3",
     "react-native-modal": "13.0.0",
