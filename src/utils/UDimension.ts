@@ -1,7 +1,7 @@
-import {Dimensions, PixelRatio, Platform, StatusBar} from 'react-native';
-import {isIphoneX} from './UDevice';
+import { Dimensions, PixelRatio, Platform, StatusBar } from 'react-native';
+import { isIphoneX } from './UDevice';
 
-const {width} = Dimensions.get('screen');
+const { width } = Dimensions.get('screen');
 
 export const screenWidth = Dimensions.get('window').width;
 export const screenHeight = Dimensions.get('window').height;

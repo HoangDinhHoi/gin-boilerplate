@@ -5,6 +5,7 @@ import IcEmpty from './IcEmpty';
 import IcEyeOff from './IcEyeOff';
 import IcWarning from './IcWarning';
 import IcNonCheck from './IcNonCheck';
+import IcArrowLeft from './IcArrowLeft';
 import IcRadioChecked from './IcRadioChecked';
 import IcRadioUnchecked from './IcRadioUnchecked';
 
@@ -16,6 +17,7 @@ export {
   IcEyeOff,
   IcWarning,
   IcNonCheck,
+  IcArrowLeft,
   IcRadioChecked,
   IcRadioUnchecked,
 };

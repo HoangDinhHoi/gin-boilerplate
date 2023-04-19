@@ -12,6 +12,7 @@ import Text from './Text/Text';
 import TextInput from './Text/TextInput';
 import Textarea from './Text/Textarea';
 
+export * from './Header/index';
 export * from './Picker';
 export * from './Text/types';
 export * from './Button/Button';
