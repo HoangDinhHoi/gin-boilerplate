@@ -11,7 +11,7 @@ import {
 import { useTheme } from '../../../theme';
 import { RowContainer } from '../../organism';
 import { IcArrowLeft } from '../../../assets/svg';
-import { ratioW, UNavigation } from '../../../utils';
+import { ratioW } from '../../../utils';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export interface IHeaderProps {
@@ -66,7 +66,7 @@ const Header: React.FC<IHeaderProps> = (props) => {
         {(isShowBack && (
           <TouchableOpacity
             activeOpacity={0.8}
-            onPress={onGoBack ?? UNavigation.goBack}
+            onPress={onGoBack}
           >
             <IcArrowLeft color={backIconColor} />
           </TouchableOpacity>
