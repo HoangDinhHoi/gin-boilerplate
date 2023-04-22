@@ -7,6 +7,7 @@ import {
 const isTabRef: React.MutableRefObject<boolean | null> = React.createRef();
 const navigationRef = React.createRef<NavigationContainerRef>();
 const routeNameRef: React.MutableRefObject<string | null> = React.createRef();
+
 function navigate<T extends ParamListBase>(name: keyof T, params?: T[keyof T]) {
   navigationRef.current?.navigate(name as string, params);
 }
@@ -19,13 +20,13 @@ function pushToPage<T extends ParamListBase>(
 function replace<T extends ParamListBase>(name: keyof T, params?: T[keyof T]) {
   navigationRef.current?.dispatch(StackActions.replace(name as string, params));
 }
-function popToTop() {
+const popToTop = () => {
   navigationRef.current?.dispatch(StackActions.popToTop());
 }
-function pop(number = 1) {
+const pop = (number = 1) => {
   navigationRef.current?.dispatch(StackActions.pop(number));
 }
-function goBack() {
+const goBack = () => {
   if (navigationRef.current?.canGoBack()) {
     navigationRef.current?.goBack();
   }
@@ -42,7 +43,7 @@ function setRoot<T extends ParamListBase>(routeName: keyof T, params = {}) {
   });
 }
 
-function getCurrentRoute() {
+const getCurrentRoute = () => {
   const currentRoute = navigationRef.current?.getCurrentRoute();
   return currentRoute?.name;
 }
