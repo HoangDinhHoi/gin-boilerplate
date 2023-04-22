@@ -58,4 +58,5 @@ export default {
   navigate,
   replace,
   pop,
+  navigationRef
 };
