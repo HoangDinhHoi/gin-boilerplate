@@ -9,7 +9,7 @@ interface ISeparatorProps {
 
 const Separator: React.FC<ISeparatorProps> = ({
   height = 5,
-  width = 5,
+  width = '100%',
   backgroundColor = 'transparent',
 }) => {
   return <View style={{ height, width, backgroundColor }} />;
