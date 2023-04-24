@@ -125,7 +125,7 @@ const TabViewComponent: React.FC<ITabViewComponentProps> = (props) => {
   );
 };
 
-export default React.memo(TabViewComponent);
+export default TabViewComponent;
 
 const styles = StyleSheet.create({
   sceneStyle: {
