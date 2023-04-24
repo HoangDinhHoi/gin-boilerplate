@@ -112,7 +112,6 @@ const TabViewComponent: React.FC<ITabViewComponentProps> = (props) => {
   };
   return (
     <TabView
-      lazy
       style={styleTabView}
       renderScene={renderScene}
       onIndexChange={onChangeIndex}
