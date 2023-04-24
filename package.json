@@ -158,16 +158,17 @@
     ]
   },
   "dependencies": {
-    "react-native-device-info": "^10.6.0",
-    "react-native-fast-image": "8.6.3",
-    "react-native-modal": "13.0.0",
-    "react-native-safe-area-context": "^4.5.1",
-    "react-native-svg": "13.9.0",
-    "react-native-toast-message": "2.1.6",
-    "@react-native-async-storage/async-storage": "^1.18.1",
+    "@react-native-async-storage/async-storage": "1.18.1",
     "@react-navigation/bottom-tabs": "5.11.11",
     "@react-navigation/native": "5.9.4",
-    "hoist-non-react-statics": "^3.3.2",
-    "@react-navigation/stack": "5.14.5"
+    "@react-navigation/stack": "5.14.5",
+    "hoist-non-react-statics": "3.3.2",
+    "react-native-device-info": "10.6.0",
+    "react-native-fast-image": "8.6.3",
+    "react-native-modal": "13.0.0",
+    "react-native-safe-area-context": "4.5.1",
+    "react-native-svg": "13.9.0",
+    "react-native-tab-view": "3.5.1",
+    "react-native-toast-message": "2.1.6"
   }
 }

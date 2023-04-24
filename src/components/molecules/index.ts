@@ -6,10 +6,6 @@ export * from './Modal/function';
 export * from './Loading/types';
 export * from './Loading/function';
 import Loading from './Loading/index';
+export * from './TabView/index';
 
-export {
-  AlertModal,
-  BottomSheet,
-  GlobalModal,
-  Loading,
-};
+export { AlertModal, BottomSheet, GlobalModal, Loading };
