@@ -19,6 +19,7 @@ import {
   keyExtractor,
   IRouterProps,
 } from 'react-native-gin-boilerplate';
+import type { TButtonAny } from '../../../definitions';
 
 interface IProps {
   tabWidth?: number;
@@ -33,6 +34,7 @@ interface IProps {
     item: IRouterProps;
     index: number;
   }) => JSX.Element;
+  onChangeIndex?: TButtonAny<number>;
 }
 
 const TabView: React.FC<IProps> = ({
@@ -42,6 +44,7 @@ const TabView: React.FC<IProps> = ({
   style,
   tabTitleStyle,
   renderRoutes,
+  onChangeIndex,
 }) => {
   const { colors } = useTheme();
   const mainScrollRef = useRef<FlatList>(null);
@@ -60,6 +63,7 @@ const TabView: React.FC<IProps> = ({
   }) => {
     const onRoutePress = () => {
       mainScrollRef.current?.scrollToIndex({ animated: true, index: index });
+      onChangeIndex?.(index);
     };
 
     const $tabBar: ViewStyle = {
@@ -104,10 +108,14 @@ const TabView: React.FC<IProps> = ({
     {
       useNativeDriver: true,
       listener: (event) => {
+        const activeIndex = Math.round(
+          event.nativeEvent.contentOffset.x / tabWidth
+        );
         sideScrollRef.current?.scrollToIndex({
           animated: true,
-          index: Math.round(event.nativeEvent.contentOffset.x / tabWidth),
+          index: activeIndex,
         });
+        onChangeIndex?.(activeIndex);
       },
     }
   );
