@@ -2,15 +2,10 @@ import React from 'react';
 import ReactNativeModal, { ModalProps } from 'react-native-modal';
 import styles from './styles';
 import type { IBottomSheetProps, IBottomSheetRef } from './types';
-import {
-  ActivityIndicator,
-  StatusBar as RNStatusBar,
-  View,
-  ViewStyle,
-} from 'react-native';
+import { ActivityIndicator, View, ViewStyle } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTheme } from '../../../theme';
-import { isAndroid } from '../../../utils';
+import StatusBar from '../../atoms/StatusBar';
 
 const BottomSheet = React.forwardRef<
   IBottomSheetRef,
@@ -25,7 +20,7 @@ const BottomSheet = React.forwardRef<
     ViewStyle | undefined
   >({});
   const [modalProps, setModalProps] = React.useState<ModalProps | null>(null);
-  const [isShowCrossBar, setIsShowCrossBar] = React.useState(true);
+  const [isShowCrossBar, setIsShowCrossBar] = React.useState(false);
 
   const onCloseModal = () => setIsVisible(false);
 
@@ -37,19 +32,13 @@ const BottomSheet = React.forwardRef<
         setContainerStyles(props?.containerStyles);
         setContentModal(props?.element);
         props.modalProps && setModalProps(props?.modalProps as ModalProps);
-        setIsShowCrossBar(props?.isShowCrossBar ?? true);
-        if (isAndroid) {
-          RNStatusBar.setBackgroundColor(colors.mainBackground, false);
-        }
+        setIsShowCrossBar(props?.isShowCrossBar ?? false);
       },
       close: () => {
         setIsVisible(false);
         setContainerStyles({});
         setContentModal(null);
         setModalProps(null);
-        if (isAndroid) {
-          RNStatusBar.setBackgroundColor('transparent', false);
-        }
       },
     }),
     []
@@ -65,6 +54,7 @@ const BottomSheet = React.forwardRef<
       onBackButtonPress={onCloseModal}
       {...modalProps}
     >
+      <StatusBar />
       {isShowCrossBar && <View style={styles.crossbarContainer} />}
       <SafeAreaView style={[styles.container, containerStyles]}>
         {contentModal !== null ? (

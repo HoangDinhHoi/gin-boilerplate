@@ -63,7 +63,6 @@ const TabView: React.FC<IProps> = ({
   }) => {
     const onRoutePress = () => {
       mainScrollRef.current?.scrollToIndex({ animated: true, index: index });
-      onChangeIndex?.(index);
     };
 
     const $tabBar: ViewStyle = {

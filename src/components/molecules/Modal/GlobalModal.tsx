@@ -6,18 +6,16 @@ import {
   StyleSheet,
   ViewStyle,
   InteractionManager,
-  StatusBar as RNStatusBar,
 } from 'react-native';
 import type { IGlobalModalProps, IGlobalModalRef } from './types';
 import React, { useEffect, useImperativeHandle, useRef, useState } from 'react';
-import { useTheme } from '../../../theme';
-import { isAndroid, mAnimated } from '../../../utils';
+import { mAnimated } from '../../../utils';
+import StatusBar from '../../atoms/StatusBar';
 
 const GlobalModal = React.forwardRef<
   IGlobalModalRef,
   Partial<IGlobalModalProps>
 >((_props, ref) => {
-  const { colors } = useTheme();
   const [isVisible, setIsVisible] = useState(false);
   const scale = useRef(new Animated.Value(0)).current;
   const [content, setContent] = useState<JSX.Element>(<React.Fragment />);
@@ -34,9 +32,6 @@ const GlobalModal = React.forwardRef<
           setContent(prs.content);
           setModalProps(prs.modalProps ?? {});
           setContainerStyle(prs.containerStyle);
-          if (isAndroid) {
-            RNStatusBar.setBackgroundColor(colors.mainBackground, true);
-          }
         }).then(() => {
           setIsVisible(true);
         });
@@ -46,9 +41,6 @@ const GlobalModal = React.forwardRef<
           setContent(<React.Fragment />);
           setContainerStyle({});
           setModalProps({});
-          if (isAndroid) {
-            RNStatusBar.setBackgroundColor('transparent', true);
-          }
         }).then(() => {
           setIsVisible(false);
         });
@@ -84,6 +76,7 @@ const GlobalModal = React.forwardRef<
       onRequestClose={onCancel}
       {...modalProps}
     >
+      <StatusBar />
       <Animated.View style={$modal}>{content}</Animated.View>
     </Modal>
   );

@@ -1,5 +1,5 @@
-import {StyleSheet} from 'react-native';
-import {ratioW, screenHeight} from '../../../utils';
+import { StyleSheet } from 'react-native';
+import { ratioW, screenHeight } from '../../../utils';
 
 const styles = StyleSheet.create({
   modal: {
@@ -20,8 +20,6 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     maxHeight: screenHeight,
     minHeight: screenHeight / 3,
-    borderTopLeftRadius: ratioW(24),
-    borderTopRightRadius: ratioW(24),
   },
 });
 

@@ -1,6 +1,6 @@
 {
   "name": "react-native-gin-boilerplate",
-  "version": "0.1.27",
+  "version": "0.1.36",
   "description": "test",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -163,6 +163,7 @@
     "@react-navigation/native": "5.9.4",
     "@react-navigation/stack": "5.14.5",
     "hoist-non-react-statics": "3.3.2",
+    "react-native-date-picker": "^4.2.13",
     "react-native-device-info": "10.6.0",
     "react-native-fast-image": "8.6.3",
     "react-native-modal": "13.0.0",

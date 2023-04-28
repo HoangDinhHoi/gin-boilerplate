@@ -6,7 +6,6 @@ import {
   StyleSheet,
   TextStyle,
   ViewStyle,
-  StatusBar as RNStatusBar,
 } from 'react-native';
 import type {
   IAlertModalButtons,
@@ -14,9 +13,10 @@ import type {
   IAlertModalRef,
 } from './types';
 import type { IButtonProps, TButton } from '../../atoms';
-import { isAndroid, mAnimated, ratioW, TRobotoStyle } from '../../../utils';
+import { mAnimated, ratioW, TRobotoStyle } from '../../../utils';
 import { Button, Separator, Text } from '../../atoms';
 import { RowContainer, ViewCondition } from '../../organism';
+import StatusBar from '../../atoms/StatusBar';
 
 const AlertModal = React.forwardRef<IAlertModalRef, Partial<IAlertModalProps>>(
   (_, ref) => {
@@ -86,9 +86,6 @@ const AlertModal = React.forwardRef<IAlertModalRef, Partial<IAlertModalProps>>(
           props.modalProps && setModalProps(props?.modalProps as ModalProps);
           setTitleStyle(props.titleStyle ?? {});
           setDescStyle(props.descStyle ?? {});
-          if (isAndroid) {
-            RNStatusBar.setBackgroundColor('rgba(0, 0, 0, 0.5)', true);
-          }
           setIsVisible(true);
         },
         close: () => {
@@ -107,9 +104,6 @@ const AlertModal = React.forwardRef<IAlertModalRef, Partial<IAlertModalProps>>(
           setModalProps(null);
           setTitleStyle({});
           setDescStyle({});
-          if (isAndroid) {
-            RNStatusBar.setBackgroundColor('transparent', true);
-          }
           setIsVisible(false);
         },
       }),
@@ -150,6 +144,7 @@ const AlertModal = React.forwardRef<IAlertModalRef, Partial<IAlertModalProps>>(
         backdropOpacity={0.5}
         {...modalProps}
       >
+        <StatusBar />
         <Animated.View
           style={[styles.content, containerStyle, { transform: [{ scale }] }]}
         >

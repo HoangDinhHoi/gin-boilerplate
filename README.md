@@ -16,6 +16,7 @@ yarn add react-native-device info
 yarn add @react-navigation/native
 yarn add react-native-toast-message
 yarn add react-native-safe-area-context
+yarn add react-native-date-picker
 ```
 
 ### Step 2: Install Boilerplate
