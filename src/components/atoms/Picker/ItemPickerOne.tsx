@@ -41,7 +41,13 @@ const ItemPickerOne: React.FC<IPickerOneItem> = ({
       <Text numberOfLines={1} ellipsizeMode="middle" style={styles.$itemText}>
         {item.name}
       </Text>
-      {isCheck && <IcTick width={ratioW(18)} height={ratioW(18)} />}
+      {isCheck && (
+        <IcTick
+          width={ratioW(18)}
+          height={ratioW(18)}
+          color={colors.activeColor}
+        />
+      )}
     </TouchableOpacity>
   );
 };

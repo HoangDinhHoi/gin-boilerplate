@@ -6,11 +6,18 @@ import {
 } from '@react-navigation/native';
 import { InteractionManager, StyleSheet } from 'react-native';
 import { openAlertModal } from '../components/molecules/Modal/function';
+import type { IAlertModalProps } from '../components/molecules/Modal/types';
 import { IcWarning } from '../assets/svg';
 import type { TNavigation } from '../definitions';
 import { useTheme } from '../theme';
 
-const useNavBeforeRemove = (forceQuit = false) => {
+interface IUseNavBeforeRemove extends IAlertModalProps {
+  forceQuit?: boolean;
+}
+const useNavBeforeRemove = ({
+  forceQuit = false,
+  ...props
+}: IUseNavBeforeRemove) => {
   const [isQuit, setIsQuit] = useState(false);
   const navigation = useNavigation<TNavigation>();
   const { colors } = useTheme();
@@ -34,13 +41,10 @@ const useNavBeforeRemove = (forceQuit = false) => {
     if (!forceQuit) {
       e.preventDefault();
       openAlertModal({
-        title: 'Alert',
-        desc: 'Are you sure want to quit?',
-        icon: <IcWarning style={styles.icon} />,
-        rightButtonTitle: 'Confirm',
-        leftButtonTitle: 'Cancel',
         leftButtonType: 'bordered',
         rightButtonType: 'success',
+        ...props,
+        icon: <IcWarning style={styles.icon} />,
         leftButtonProps: {
           mainColor: colors.dangerColor,
         },
