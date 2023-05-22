@@ -27,6 +27,7 @@ export interface IWithPopUpBase {
   onLoadMore?: TButtonVoid;
   onchange?: TButtonAny<IItem>;
   itemPickerContainerStyle?: ViewStyle;
+  loadMoreTitle?: string;
 }
 
 const withPopup = <T extends IWithPopUpBase>(Component: ComponentType<T>) => {
@@ -105,7 +106,9 @@ const withPopup = <T extends IWithPopUpBase>(Component: ComponentType<T>) => {
             activeOpacity={0.8}
             style={styles.$showMoreBtn}
           >
-            <Text style={{ color: colors.primaryColor }}>Show more</Text>
+            <Text style={{ color: colors.primaryColor }}>
+              {props?.loadMoreTitle ?? ''}
+            </Text>
           </TouchableOpacity>
         );
       }

@@ -8,7 +8,7 @@ import { StyleSheet, TouchableOpacity, ViewStyle } from 'react-native';
 
 export interface IItem {
   name: string;
-  id: string;
+  id: string | number;
 }
 
 export interface IPickerOneItem {

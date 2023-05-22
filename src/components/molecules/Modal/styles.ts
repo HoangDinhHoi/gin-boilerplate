@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     width: ratioW(62),
     height: ratioW(6),
+    backgroundColor: 'white',
   },
   container: {
     bottom: 0,

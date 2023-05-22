@@ -28,8 +28,8 @@ export interface IAlertModalProps {
   desc: string;
   leftButtonTitle: string;
   rightButtonTitle: string;
-  icon: JSX.Element;
-  buttons: Partial<IAlertModalButtons>;
+  icon?: JSX.Element;
+  buttons?: Partial<IAlertModalButtons>;
   leftButtonStyle?: StyleProp<ViewStyle>;
   rightButtonStyle?: StyleProp<ViewStyle>;
   leftButtonType?: TButton;

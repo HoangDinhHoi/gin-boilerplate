@@ -14,10 +14,7 @@ import { useTheme } from '../theme';
 interface IUseNavBeforeRemove extends IAlertModalProps {
   forceQuit?: boolean;
 }
-const useNavBeforeRemove = ({
-  forceQuit = false,
-  ...props
-}: IUseNavBeforeRemove) => {
+const useNavBeforeRemove = (props: IUseNavBeforeRemove) => {
   const [isQuit, setIsQuit] = useState(false);
   const navigation = useNavigation<TNavigation>();
   const { colors } = useTheme();
@@ -38,7 +35,7 @@ const useNavBeforeRemove = ({
       }
     >
   ) => {
-    if (!forceQuit) {
+    if (!props?.forceQuit) {
       e.preventDefault();
       openAlertModal({
         leftButtonType: 'bordered',
@@ -70,7 +67,7 @@ const useNavBeforeRemove = ({
       navigation.addListener('beforeRemove', onConfirmBeforeQuit);
       return () =>
         navigation.removeListener('beforeRemove', onConfirmBeforeQuit);
-    }, [navigation, forceQuit])
+    }, [navigation, props?.forceQuit])
   );
 
   return { isQuit };

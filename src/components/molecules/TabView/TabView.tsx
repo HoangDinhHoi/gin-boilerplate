@@ -22,6 +22,7 @@ import {
 import type { TButtonAny } from '../../../definitions';
 
 interface IProps {
+  scrollEnabled?: boolean;
   tabWidth?: number;
   style?: ViewStyle;
   initialWidth?: number;
@@ -45,6 +46,7 @@ const TabView: React.FC<IProps> = ({
   tabTitleStyle,
   renderRoutes,
   onChangeIndex,
+  scrollEnabled = true,
 }) => {
   const { colors } = useTheme();
   const mainScrollRef = useRef<FlatList>(null);
@@ -144,6 +146,7 @@ const TabView: React.FC<IProps> = ({
         ref={mainScrollRef}
         pagingEnabled={true}
         keyExtractor={keyExtractor}
+        scrollEnabled={scrollEnabled}
         renderItem={renderMainRoutes}
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.mainContent}
@@ -161,7 +164,7 @@ const styles = StyleSheet.create({
   tabBar: {
     alignItems: 'center',
     justifyContent: 'center',
-    height: ratioW(40),
+    height: ratioW(42),
     padding: ratioW(10),
   },
 });

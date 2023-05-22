@@ -11,6 +11,7 @@ import StatusBar from './StatusBar';
 import Text from './Text/Text';
 import TextInput from './Text/TextInput';
 import Textarea from './Text/Textarea';
+import PaginationDot from './PaginationDot';
 
 export * from './Header/index';
 export * from './Picker';
@@ -18,6 +19,7 @@ export * from './Text/types';
 export * from './Button/Button';
 
 export {
+  PaginationDot,
   Button,
   ButtonWrapper,
   RadioButton,

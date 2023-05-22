@@ -16,7 +16,7 @@ const StatusBar = React.memo(({ barStyle }: IStatusBar) => {
   const { theme } = useTheme();
   if (!barStyle) {
     barStyle = 'light-content';
-    if (theme === 'light') {
+    if (theme === 'dark') {
       barStyle = 'dark-content';
     }
   }
