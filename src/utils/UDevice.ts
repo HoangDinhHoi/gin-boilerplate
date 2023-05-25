@@ -15,7 +15,9 @@ export const isIphoneX = () => {
       dimension.height === 896 ||
       dimension.width === 896 ||
       dimension.height === 926 ||
-      dimension.width === 926)
+      dimension.width === 926 ||
+      dimension.height === 932 ||
+      dimension.width === 932)
   );
 };
 
